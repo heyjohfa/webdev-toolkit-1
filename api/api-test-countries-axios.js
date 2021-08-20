@@ -23,7 +23,7 @@ function getACountry(name) {
     // test if the url is working: shows https://restcountries.eu/rest/v2/name/united
     console.log(url)
 
-    //build the axios basic code first
+    //build the axios basic code first like this
     //axios.get().then().catch()
     axios
         .get(url)
@@ -31,7 +31,7 @@ function getACountry(name) {
         .then(responseJson => {
 
             //check the results before using them
-            console.log(responseJson.data);
+            //console.log(responseJson.data);
 
             //define an array to output the data
             let outputArray = [];
@@ -54,7 +54,7 @@ function getACountry(name) {
                 itemObject.capital = responseJson.data[i].capital
                 itemObject.region = responseJson.data[i].region
                 itemObject.currencies = responseJson.data[i].currencies[0]
-                    // console.log(itemObject)
+                // console.log(itemObject)
 
                 //push these item object into the outputArray
                 outputArray.push(itemObject)
