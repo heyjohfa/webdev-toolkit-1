@@ -4,6 +4,7 @@ const axios = require("axios");
 const contributorCount = (repositories, contributorsList) => {
     console.log("4 - start function contributorCount")
     let repositoryContributorCount = [];
+    //you can also use map here
     for (let i = 0; i < repositories.length; i++) {
         repositoryContributorCount.push({
             name: repositories[i].name,
