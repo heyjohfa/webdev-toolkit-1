@@ -6,7 +6,7 @@ function getRates(baseCurrency) {
     let url = `https://api.frankfurter.app/latest?from=${baseCurrency}`
     console.log(url)
     return axios
-        .put(url, baseCurrency)
+        .get(url)
         .then((baseCurrencyData) => {
             console.log(baseCurrencyData.data.rates)
             return baseCurrencyData.data.rates
