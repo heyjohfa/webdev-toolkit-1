@@ -16,11 +16,11 @@ const contributorCount = (repositories, contributorsList) => {
 };
 
 //this one runs third (multiple times)
-const getRepoContributors = async(repo) => {
+const getRepoContributors = async (repo) => {
     console.log("3 - start function getRepoContributors")
-    const contributorsReponse = await axios.get(repo.contributors_url);
+    const contributorsResponse = await axios.get(repo.contributors_url);
     console.log("3 - finish function getRepoContributors")
-    return await contributorsReponse.data;
+    return await contributorsResponse.data;
 };
 
 // this one runs second
@@ -28,8 +28,7 @@ const getAllRepos = (repos) => {
     console.log("2 - start function getAllRepos")
     const newRepos = repos.slice(0, 5);
     return Promise.all(
-            newRepos
-            .map(getRepoContributors))
+        newRepos.map(getRepoContributors))
         .then((contributors) => {
             console.log("2 - finish function getAllRepos")
             return contributorCount(newRepos, contributors);
@@ -42,7 +41,7 @@ function listRepoContributorCounts() {
     axios
         .get("https://api.github.com/orgs/wesabe/repos")
         .then((response) => response.data)
-        .then(getAllRepos)
+        .then((responseJson) => getAllRepos(responseJson))
         .then((repositoryContributorCounts) => {
             console.log("1 - finish function listRepoContributorCounts")
             return repositoryContributorCounts;
