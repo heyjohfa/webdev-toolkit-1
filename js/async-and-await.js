@@ -52,3 +52,22 @@ function listRepoContributorCounts() {
 }
 
 console.log(listRepoContributorCounts());
+
+/* Expected output
+'1 - start function listRepoContributorCounts'
+'2 - start function getAllRepos'
+'3 - start function getRepoContributors'
+'3 - start function getRepoContributors'
+'3 - start function getRepoContributors'
+'3 - start function getRepoContributors'
+'3 - start function getRepoContributors'
+'3 - finish function getRepoContributors'
+'3 - finish function getRepoContributors'
+'3 - finish function getRepoContributors'
+'3 - finish function getRepoContributors'
+'3 - finish function getRepoContributors'
+'2 - finish function getAllRepos'
+'4 - start function contributorCount'
+'4 - finish function contributorCount'
+'1 - finish function listRepoContributorCounts'
+*/
