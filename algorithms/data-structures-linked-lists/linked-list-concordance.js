@@ -233,7 +233,7 @@ const data = [
 ];
 
 const conc = concordance(data);
-const words = new LinkedList(["human", "free", "enjoy"]);
+const words = new LinkedList(["HUMAN", "free", "enjoy"]);
 
 
 ////////////////////////////////////////////////////////////////////
@@ -294,7 +294,7 @@ function searchLines(words, concordance, data) {
 
     if (!word) return [];
 
-    while (word) {
+    while (word.toLowerCase()) {
 
         if (concordance.hasOwnProperty(word.value)) {
             let key = word.value;
