@@ -249,8 +249,10 @@ const words = new LinkedList(["HUMAN", "free", "enjoy"]);
 */
 
 function concordance(data) {
+    //create a new map to store the concordance data
     let map = new Map();
 
+    //loop through each onf the concordance data items
     for (let [index, sentence] of data.entries()) {
         // console.log("inside the for ", index, sentence)
 
@@ -288,24 +290,39 @@ console.log(concordance(data));
 */
 function searchLines(words, concordance, data) {
 
+    //get the current word to work with
     let word = words.head;
 
+    //create an empty array to store the results
     let result = [];
 
+    //if there are no words return an empty array
     if (!word) return [];
 
-
+    //change the word value to lower case
     let lowerCasedKey = word.value.toLowerCase()
+
+    // loop through each one of the words
     while (word) {
+
+        // if the concordance has the index that matching the word
         if (concordance.hasOwnProperty(lowerCasedKey)) {
+
+            //loop through each one of the indexes where the concordance has found the word
             for (let index = 0; index < concordance[lowerCasedKey].length; index++) {
+
+                //get the sentence index from the concordance
                 let sentenceIndex = concordance[lowerCasedKey][index];
 
+                //get the sentence value from the data
                 let sentence = data[sentenceIndex];
 
+                //if the sentence is already found ignore it
                 if (result.includes(sentence)) {
                     continue;
-                } else {
+                } 
+                //if not found, add it
+                else {
                     result.push(sentence);
                 }
             }
