@@ -249,27 +249,44 @@ const words = new LinkedList(["HUMAN", "free", "enjoy"]);
 */
 
 function concordance(data) {
+
     //create a new map to store the concordance data
     let map = new Map();
 
-    //loop through each onf the concordance data items
+    //loop through each one of the concordance data items
     for (let [index, sentence] of data.entries()) {
-        // console.log("inside the for ", index, sentence)
 
+        //convert the sentences into an array of words by excluding spaces, comas, apostrophes and semi-colons
         let wordsArray = [...new Set(sentence.split(/[\s.,';]/))];
 
+        //loop through each one of words inside the array
         wordsArray.forEach((word) => {
+
+            //convert the words to lower case
             word = word.toLowerCase();
+
+            //if the word is not empty
             if (word !== "") {
+
+                //if the word is already in the map...
                 if (map.get(word)) {
+
+                    //... add new index to that word
                     map.set(word, [...map.get(word), index]);
-                } else {
+                }
+
+                //if it is not in the map...
+                else {
+
+                    //...add the word with its first index
                     map.set(word, [index]);
                 }
             }
         });
 
     }
+
+    //convert a list of key-value pairs into an object
     // Object.fromEntries() method transforms a list of key-value pairs into an object.
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries
     let conc = Object.fromEntries(map);
@@ -321,7 +338,7 @@ function searchLines(words, concordance, data) {
                 if (result.includes(sentence)) {
                     continue;
                 } 
-                //if not found, add it
+                //if not found, add it to the results
                 else {
                     result.push(sentence);
                 }
@@ -331,9 +348,11 @@ function searchLines(words, concordance, data) {
             return [];
         }
 
+        //move to the next word
         word = word.next;
     }
 
+    //return results
     return result;
 }
 
