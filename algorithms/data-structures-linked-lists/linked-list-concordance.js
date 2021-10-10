@@ -252,7 +252,7 @@ function concordance(data) {
     let map = new Map();
 
     for (let [index, sentence] of data.entries()) {
-        console.log("inside the for ", index, sentence)
+        // console.log("inside the for ", index, sentence)
 
         let wordsArray = [...new Set(sentence.split(/[\s.,';]/))];
 
@@ -294,12 +294,12 @@ function searchLines(words, concordance, data) {
 
     if (!word) return [];
 
-    while (word.toLowerCase()) {
 
-        if (concordance.hasOwnProperty(word.value)) {
-            let key = word.value;
-            for (let index = 0; index < concordance[key].length; index++) {
-                let sentenceIndex = concordance[key][index];
+    let lowerCasedKey = word.value.toLowerCase()
+    while (word) {
+        if (concordance.hasOwnProperty(lowerCasedKey)) {
+            for (let index = 0; index < concordance[lowerCasedKey].length; index++) {
+                let sentenceIndex = concordance[lowerCasedKey][index];
 
                 let sentence = data[sentenceIndex];
 
