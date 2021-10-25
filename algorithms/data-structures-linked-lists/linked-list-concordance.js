@@ -316,11 +316,11 @@ function searchLines(words, concordance, data) {
     //if there are no words return an empty array
     if (!word) return [];
 
-    //change the word value to lower case
-    let lowerCasedKey = word.value.toLowerCase()
-
     // loop through each one of the words
     while (word) {
+
+        //change the word value to lower case
+        let lowerCasedKey = word.value.toLowerCase()
 
         // if the concordance has the index that matching the word
         if (concordance.hasOwnProperty(lowerCasedKey)) {
