@@ -9,7 +9,7 @@
   * Population
   * Currencies
   The api documentation is found here:
-  https://restcountries.eu/
+  https://restcountries.com/
 */
 
 //load axios (see documentation here: https://github.com/axios/axios)
@@ -17,10 +17,10 @@ const axios = require("axios")
 
 function getACountry(name) {
 
-    //navigate to https://restcountries.eu/#api-endpoints-name for the API endpoint documentation
-    let url = `https://restcountries.eu/rest/v2/name/${name}`
+    //navigate to https://restcountries.com/#api-endpoints-name for the API endpoint documentation
+    let url = `https://restcountries.com/v3.1/name/${name}`
 
-    // test if the url is working: shows https://restcountries.eu/rest/v2/name/united
+    // test if the url is working: shows https://restcountries.com/v3.1/name/united
     console.log(url)
 
     //build the axios basic code first like this
