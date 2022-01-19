@@ -39,21 +39,21 @@ function getACountry(name) {
             //loop through the responseJson data object
             for (let i = 0; i < responseJson.data.length; i++) {
 
-                // console.log(responseJson.data[i].name)
+                // console.log(responseJson.data[i].name.official)
                 // console.log(responseJson.data[i].population)
-                // console.log(responseJson.data[i].capital)
+                // console.log(responseJson.data[i].capital[0])
                 // console.log(responseJson.data[i].region)
-                // console.log(responseJson.data[i].currencies[0])
+                // console.log(responseJson.data[i].currencies)
 
                 //create an empty object to store one item
                 let itemObject = {}
 
                 //populate the empty object with the name, capital, region and capital and currencies
-                itemObject.name = responseJson.data[i].name
+                itemObject.name = responseJson.data[i].name.official
                 itemObject.population = responseJson.data[i].population
-                itemObject.capital = responseJson.data[i].capital
+                itemObject.capital = responseJson.data[i].capital[0]
                 itemObject.region = responseJson.data[i].region
-                itemObject.currencies = responseJson.data[i].currencies[0]
+                itemObject.currencies = responseJson.data[i].currencies
                 // console.log(itemObject)
 
                 //push these item object into the outputArray
